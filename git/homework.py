@@ -10,12 +10,14 @@ class OurAwesomeException(Exception):
     pass
 
 
-def is_two_object_has_same_value(first: Any, second: Any) -> bool:
+def is_two_object_has_same_value(first, second) -> bool:
     """
     If @first and @second has same value should return True
     In another case should return False
     """
-    pass
+    if first == second:
+        return True
+#        print (first," = ", second)
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -23,7 +25,12 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+
+    if type(first) == type(second):
+#       print (type(first))
+#        print (type(second))
+#        print ("type ok")
+        return True
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -31,7 +38,8 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    if type(first) == type(second):
+        return True
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -48,7 +56,8 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    pass
+    return first_value * second_value
+    
 
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
