@@ -38,7 +38,7 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if type(first) == type(second):
+    if id(first) == id(second):
         return True
 
 
@@ -56,8 +56,9 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    return first_value * second_value
-    
+    if type(first_value) == int and type(second_value) == int:
+        return first_value * second_value
+
 
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
@@ -87,7 +88,14 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
             print("Not valid input data")
         >>> "Not valid input data"
     """
-    pass
+
+    try:
+        first_value = int(first_value)
+        second_value = int(second_value)
+        return first_value * second_value
+    except ValueError:
+        print("Not valid input data")
+
 
 
 def is_word_in_text(word: str, text: str) -> bool:
@@ -106,14 +114,22 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    pass
+    if word.find(text):
+        return True
 
 
 def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    pass
+    mylist = []
+
+    for i in range(13):
+        if i == 6 or i == 7:
+            continue
+        mylist.append(i)
+        if i == 12:
+            return mylist
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
@@ -125,7 +141,10 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    pass
+    for i in data:
+        if i < 0:
+            data.remove(i)
+    return data
 
 
 def alphabet() -> dict:
