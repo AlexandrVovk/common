@@ -141,10 +141,11 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
+    data_result = []
     for i in data:
-        if i < 0:
-            data.remove(i)
-    return data
+        if i > 0:
+            data_result.append(i)
+    return data_result
 
 
 def alphabet() -> dict:
@@ -155,7 +156,13 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    pass
+    import string
+    abc = list(string.ascii_lowercase)
+    len_abc = (len(abc))
+    num = list(range(1, len_abc + 1))
+    diction = dict(zip(num, abc))
+    return diction
+
 
 
 def simple_sort(data: List[int]) -> List[list]:
@@ -167,4 +174,11 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    pass
+    for i in range(len(data)):
+        for n in range(1, len(data)):
+            a = data [n-1]
+            b = data [n]
+            if a > b:
+                data [n-1] = b
+                data [n] = a
+    return data
