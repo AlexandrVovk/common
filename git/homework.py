@@ -17,7 +17,6 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     """
     if first == second:
         return True
-#        print (first," = ", second)
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -27,9 +26,6 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     """
 
     if type(first) == type(second):
-#       print (type(first))
-#        print (type(second))
-#        print ("type ok")
         return True
 
 
