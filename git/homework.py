@@ -15,8 +15,7 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     If @first and @second has same value should return True
     In another case should return False
     """
-    if first == second:
-        return True
+    return first == second
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -25,8 +24,7 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     In another case should return False
     """
 
-    if type(first) == type(second):
-        return True
+    return type(first) == type(second)
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -34,8 +32,8 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if id(first) == id(second):
-        return True
+
+    return id(first) == id(second)
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -86,9 +84,7 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
     """
 
     try:
-        first_value = int(first_value)
-        second_value = int(second_value)
-        return first_value * second_value
+        return int(first_value) * int(second_value)
     except ValueError:
         print("Not valid input data")
 
@@ -124,8 +120,7 @@ def some_loop_exercise() -> list:
         if i == 6 or i == 7:
             continue
         mylist.append(i)
-        if i == 12:
-            return mylist
+    return mylist
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
