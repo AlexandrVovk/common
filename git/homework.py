@@ -182,3 +182,4 @@ def simple_sort(data: List[int]) -> List[list]:
                 data [n-1] = b
                 data [n] = a
     return data
+print("Done!")
