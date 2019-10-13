@@ -71,8 +71,7 @@ def task_4_update_customer(con):
                     SET CustomerName = 'Johnny Depp' 
                     WHERE CustomerName = (SELECT CustomerName FROM Customers LIMIT 1)""")
         con.commit()
-        cur.execute("SELECT * FROM Customers")
-        return cur.fetchall()
+
 
 
 def task_5_delete_the_last_customer(con) -> None:
@@ -254,16 +253,6 @@ def task_16_match_all_customers_and_suppliers_by_country(cur):
 
     Returns: 194 records
     """
-    # cur.execute("""select Customers.CustomerName, Customers.Address, Customers.Country as CustomerCountry,
-    # Suppliers.Country as SupplierCountry, Suppliers.SupplierName
-    # from Customers full join Suppliers on Customers.Country = Suppliers.Country order by Customers.Country, Suppliers.Country""")
-
-    #cur.execute("""SELECT Customers.CustomerName, Customers.Address, Customers.Country,
-    #            Suppliers.Country, Suppliers.SupplierName
-    #            FROM Customers
-    #            FULL JOIN Suppliers
-    #            ON Customers.Country = Suppliers.Country
-    #            ORDER BY Customers.Country, Suppliers.Country""")
 
     cur.execute("""SELECT c.CustomerName, c.Address, c.Country as CustomerCountry,
                 s.Country AS SupplierCountry, s.SupplierName
