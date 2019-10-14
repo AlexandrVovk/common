@@ -187,9 +187,7 @@ def task_12_list_suppliers_from_specified_countries(cur):
     """
     cur.execute("""SELECT SupplierID, SupplierName, ContactName, City, Country 
                 FROM Suppliers 
-                WHERE Country = 'USA' 
-                OR Country = 'UK' 
-                OR Country = 'Japan'""")
+                WHERE Country in ('USA', 'UK', 'Japan')""")
     return cur.fetchall()
 
 
@@ -222,7 +220,7 @@ def task_14_list_products_with_supplier_information(cur):
     """
     cur.execute("""SELECT ProductID, ProductName, Unit, Price, Country, City, SupplierName 
                 FROM Products AS p
-                INNER JOIN Suppliers AS s
+                LEFT JOIN Suppliers AS s
                 ON p.SupplierID=s.SupplierID""")
     return cur.fetchall()
 
