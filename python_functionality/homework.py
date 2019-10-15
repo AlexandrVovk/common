@@ -6,6 +6,20 @@ ST = Dict[str, Union[str, int]]
 DT = List[ST]
 
 
+#######################
+given_data = [
+    {'age': 43, 'name': 'denis'},
+    {'age': 49, 'name': 'Roman'},
+    {'age': 36, 'name': 'Godzilla'},
+    {'age': 47, 'name': 'spike'},
+    {'age': 31, 'name': 'SuperMan'},
+    {'age': 49, 'name': 'Batman'},
+    {'age': 37, 'name': 'claus'},
+    {'age': 55, 'name': 'Frank'},
+    {'age': 83, 'name': 'homer'}
+]
+#######################
+
 def task_1_fix_names_start_letter(data: DT) -> DT:
     """
     Make all `names` field in list of students to start from upper letter
@@ -14,7 +28,7 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-    pass
+    print(data)
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
