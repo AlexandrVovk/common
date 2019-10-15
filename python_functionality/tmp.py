@@ -29,8 +29,6 @@ for _ in  given_data:
 #            print('now ' + _['name'] + ' is True')
 #        else:
 #            print('still ' + _['name'] + ' is False')
-
-
 #print(given_data[0]['name'])
 
 
