@@ -13,15 +13,25 @@ given_data = [
 
 
 for _ in  given_data:
-#    print(_['name'])
+    print("type is", type(_['name']), _['name'])
     if _['name'][0].isupper():
-        print(_['name'] + ' is True')
+#        print(_['name'] + ' is True')
+        pass
     else:
-        print(_['name'] + ' is False \nwe will change')
+#        print(_['name'] + ' is False')
         _['name'] = list(_['name'])
         _['name'][0] = (_['name'][0].upper())
-        _['name'][0] = str(''.join(_['name']))
-        print(type(_['name']))
+        _['name'] = str(''.join(_['name']))
+        print("type is", type(_['name']), _['name'])
+#    print(type(_['name']))
+#        print(_['name'])
+#        print(_)
+
+
+for i in given_data:
+    print(i['name'][0], i['name'][0].isupper())
+
+#        print(type(_['name']))
 #        print(type(a))
 
 #        _['name'][0] = a
