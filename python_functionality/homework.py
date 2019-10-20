@@ -28,16 +28,11 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-    for _ in data:
-
-        if _['name'][0].isupper():
-            pass
-        else:
-#            print(_['name'] + ' is False')
-            _['name'] = list(_['name'])
-            _['name'][0] = (_['name'][0].upper())
-            _['name'] = str(''.join(_['name']))
-#            print(_['name'])
+    for i in data:
+        if i.get('name') is not None and i['name'][0].islower():
+            i['name'] = list(i['name'])
+            i['name'][0] = (i['name'][0].upper())
+            i['name'] = str(''.join(i['name']))
     return data
 
 
@@ -49,7 +44,10 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    pass
+    for data_list in data:
+        for redun_list in redundant_keys:
+            data_list.pop(redun_list)
+    return data
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
@@ -59,21 +57,32 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
         find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
         >>> [{'name': 'Alex', 'age': 26}]
     """
-    pass
+    new_data = []
+    for data_list in data:
+        if value in data_list.values():
+            new_data.append(data_list)
+            return new_data
 
 
 def task_4_min_value_integers(data: List[int]) -> int:
     """
     Find and return minimum value from list
     """
-    pass
+    if len(data) == 0:
+        return None
+    data.sort()
+    return data[0]
 
 
 def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
     Find the longest string
     """
-    pass
+    if len(data) == 0:
+        return None
+    data_new = [str(i) for i in data]
+    data_new.sort(key=len)
+    return data_new[0]
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
@@ -82,7 +91,9 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    pass
+
+    data_new = sorted(data, key=lambda k: k[key])
+    return data_new[0]
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
