@@ -92,7 +92,7 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
 
     """
 
-    data_new = sorted(data, key=lambda k: k[key])
+    data_new = sorted([i for i in data if key in i.keys()], key=lambda k: k[key])
     return data_new[0]
 
 
@@ -100,14 +100,20 @@ def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
-    pass
+
+    data_new = [j for i in data for j in i]
+    data_new.sort(reverse=True)
+    return data_new[0]
 
 
 def task_8_sum_of_ints(data: List[int]) -> int:
     """
     Find sum of all items in given list
     """
-    pass
+    if len(data) == 0:
+        return 0
+    return sum(data)
+
 
 
 def task_9_sum_characters_positions(text: str) -> int:
@@ -123,7 +129,8 @@ def task_9_sum_characters_positions(text: str) -> int:
         >>> 532
 
     """
-    pass
+    return sum(ord(i) for i in text)
+
 
 
 def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
