@@ -19,8 +19,6 @@ def task_1_add_new_record_to_db(con) -> None:
     Returns: 92 records
 
     """
-
-
     with con.cursor() as cursor:
         cursor.execute(
             """
@@ -28,7 +26,6 @@ def task_1_add_new_record_to_db(con) -> None:
             VALUES (92, 'Thomas','David','Some Address','London','774','Singapore')
             """
         )
-
 
 
 def task_2_list_all_customers(cur) -> list:
@@ -41,7 +38,6 @@ def task_2_list_all_customers(cur) -> list:
     Returns: 91 records
 
     """
-
     cur.execute("SELECT * FROM Customers")
     return cur.fetchall()
 
@@ -73,7 +69,6 @@ def task_4_update_customer(con):
     Returns: 91 records with updated customer
 
     """
-
     with con.cursor() as cur:
         cur.execute(
             """
@@ -83,7 +78,6 @@ def task_4_update_customer(con):
             """
         )
         con.commit()
-
 
 
 def task_5_delete_the_last_customer(con) -> None:
@@ -104,6 +98,7 @@ def task_5_delete_the_last_customer(con) -> None:
         con.commit()
         cur.execute("SELECT * FROM Customers")
         return cur.fetchall()
+
 
 def task_6_list_all_supplier_countries(cur) -> list:
     """
@@ -159,6 +154,7 @@ def task_8_count_customers_by_city(cur):
     )
     return cur.fetchall()
 
+
 def task_9_count_customers_by_country_with_than_10_customers(cur):
     """
     List the number of customers in each country. Only include countries with more than 10 customers.
@@ -205,7 +201,6 @@ def task_11_list_customers_starting_from_11th(cur):
         """
     )
     return cur.fetchall()
-
 
 
 def task_12_list_suppliers_from_specified_countries(cur):
@@ -258,7 +253,6 @@ def task_14_list_products_with_supplier_information(cur):
 
     Returns: 77 records
     """
-
     cur.execute(
         """
         SELECT ProductID, ProductName, Unit, Price, Country, City, SupplierName
@@ -279,7 +273,6 @@ def task_15_list_customers_with_any_order_or_not(cur):
 
     Returns: 213 records
     """
-
     cur.execute(
         """
         SELECT CustomerName, ContactName, Country, OrderID
@@ -300,7 +293,6 @@ def task_16_match_all_customers_and_suppliers_by_country(cur):
 
     Returns: 194 records
     """
-
     cur.execute(
         """
         SELECT c.CustomerName, c.Address, c.Country as CustomerCountry,
