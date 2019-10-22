@@ -1,6 +1,3 @@
-from typing import List
-
-
 def task_1_add_new_record_to_db(con) -> None:
     """
     Add a record for a new customer from Singapore
@@ -157,7 +154,8 @@ def task_8_count_customers_by_city(cur):
 
 def task_9_count_customers_by_country_with_than_10_customers(cur):
     """
-    List the number of customers in each country. Only include countries with more than 10 customers.
+    List the number of customers in each country.
+    Only include countries with more than 10 customers.
 
     Args:
         cur: psycopg cursor
