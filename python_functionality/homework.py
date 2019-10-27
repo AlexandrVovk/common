@@ -6,20 +6,6 @@ ST = Dict[str, Union[str, int]]
 DT = List[ST]
 
 
-#######################
-# given_data = [
-#     {'age': 43, 'name': 'denis'},
-#     {'age': 49, 'name': 'Roman'},
-#     {'age': 36, 'name': 'Godzilla'},
-#     {'age': 47, 'name': 'spike'},
-#     {'age': 31, 'name': 'SuperMan'},
-#     {'age': 49, 'name': 'Batman'},
-#     {'age': 37, 'name': 'claus'},
-#     {'age': 55, 'name': 'Frank'},
-#     {'age': 83, 'name': 'homer'}
-# ]
-#######################
-
 def task_1_fix_names_start_letter(data: DT) -> DT:
     """
     Make all `names` field in list of students to start from upper letter
@@ -91,16 +77,14 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-
-    data_new = sorted([i for i in data if key in i.keys()], key=lambda k: k[key])
-    return data_new[0]
+    data_n = sorted([i for i in data if key in i.keys()], key=lambda k: k[key])
+    return data_n[0]
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
-
     data_new = [j for i in data for j in i]
     data_new.sort(reverse=True)
     return data_new[0]
@@ -113,7 +97,6 @@ def task_8_sum_of_ints(data: List[int]) -> int:
     if len(data) == 0:
         return 0
     return sum(data)
-
 
 
 def task_9_sum_characters_positions(text: str) -> int:
@@ -132,7 +115,6 @@ def task_9_sum_characters_positions(text: str) -> int:
     return sum(ord(i) for i in text)
 
 
-
 def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
     """
     Return generator of simple numbers
@@ -144,4 +126,12 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
         next(a)
         >>> 3
     """
-    pass
+    i = 2
+    while i < 200:
+        for j in range(2, i):
+            if i % j == 0:
+                break
+        else:
+            yield i
+
+        i += 1
