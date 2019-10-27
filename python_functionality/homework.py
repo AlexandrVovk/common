@@ -66,9 +66,9 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
     if len(data) == 0:
         return None
-    data_new = [str(i) for i in data]
-    data_new.sort(key=len)
-    return data_new[0]
+    data = [str(i) for i in data]
+    data.sort(key=len)
+    return data[0]
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
@@ -77,17 +77,14 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    data_n = sorted([i for i in data if key in i.keys()], key=lambda k: k[key])
-    return data_n[0]
+    return min([i for i in data if key in i.keys()], key=lambda k: k[key])
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
-    data_new = [j for i in data for j in i]
-    data_new.sort(reverse=True)
-    return data_new[0]
+    return max([j for i in data for j in i])
 
 
 def task_8_sum_of_ints(data: List[int]) -> int:
