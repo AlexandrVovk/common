@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+Vegetables page
+{% endblock %}
+{% block body %}
+<p>Vegetables list:</p>
+{% for elem in list %}
+<lu>
+    <li>
+{% if elem == 'beetroot' %}
+        {{ elem|upper }}
+{% else %}
+        {{ elem }}
+{% endif %}
+    </li>
+</lu>
+{% endfor %}
+{% endblock %}
