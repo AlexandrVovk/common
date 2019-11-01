@@ -14,12 +14,11 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-    for i in data:
-        if i.get('name') is not None and i['name'][0].islower():
-            i['name'] = list(i['name'])
-            i['name'][0] = (i['name'][0].upper())
-            i['name'] = str(''.join(i['name']))
-    return data
+    # for i in data:
+    #     if i.get('name') is not None:
+    #         i['name'] = i['name'].capitalize()
+    # return data
+    return [{k: (v.capitalize() if k == 'name' else v) for k, v in i.items()} for i in data]
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
@@ -27,13 +26,10 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     Remove from dictionaries given key value
 
     Examples:
-       remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
+       remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': .89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    for data_list in data:
-        for redun_list in redundant_keys:
-            data_list.pop(redun_list)
-    return data
+    return [{k: v for k, v in i.items() if k not in redundant_keys} for i in data]
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
@@ -43,11 +39,12 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
         find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
         >>> [{'name': 'Alex', 'age': 26}]
     """
-    new_data = []
-    for data_list in data:
-        if value in data_list.values():
-            new_data.append(data_list)
-            return new_data
+    # new_data = []
+    # for data_list in data:
+    #     if value in data_list.values():
+    #         new_data.append(data_list)
+    #         return new_data
+    return [j for j in data if value in j.values()]
 
 
 def task_4_min_value_integers(data: List[int]) -> int:
