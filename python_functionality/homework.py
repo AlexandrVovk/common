@@ -11,14 +11,14 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
     Make all `names` field in list of students to start from upper letter
 
     Examples:
-        fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
+        fix_names_start_letters([{'name': 'Alex', 'age': 26},
+                                {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-    # for i in data:
-    #     if i.get('name') is not None:
-    #         i['name'] = i['name'].capitalize()
-    # return data
-    return [{k: (v.capitalize() if k == 'name' else v) for k, v in i.items()} for i in data]
+    return [{k: (v.capitalize()
+            if k == 'name' else v)
+            for k, v in i.items()}
+            for i in data]
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
@@ -26,24 +26,23 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     Remove from dictionaries given key value
 
     Examples:
-       remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': .89}], 'age')
+       remove_dict_field([{'name': 'Alex', 'age': 26},
+                            {'name': 'denys', 'age': .89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    return [{k: v for k, v in i.items() if k not in redundant_keys} for i in data]
+    return [{k: v for k, v in i.items()
+            if k not in redundant_keys}
+            for i in data]
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
     """
     Find and return all items that has @searching value in any key
     Examples:
-        find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
+        find_item_via_value([{'name': 'Alex', 'age': 26},
+                            {'name': 'denys', 'age': 89}], 26)
         >>> [{'name': 'Alex', 'age': 26}]
     """
-    # new_data = []
-    # for data_list in data:
-    #     if value in data_list.values():
-    #         new_data.append(data_list)
-    #         return new_data
     return [j for j in data if value in j.values()]
 
 
