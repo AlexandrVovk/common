@@ -8,9 +8,13 @@ app = Flask(__name__)
 def get_home_page():
     return render_template("home.html", data=get_data())
 
-@app.route('/clock')
-def clock_page():
-    return render_template("clock.html")
+
+@app.route('/<item>')
+def get_page(item):
+    for i in get_data():
+        if i['title'] == item:
+            return render_template("page.html", title=i['title'],
+                                   text=i['text'])
 
 
 if __name__ == "__main__":
