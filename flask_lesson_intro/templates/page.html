@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block body %}
+<div id="images">
+    <img src="{{url_for('static', filename=title+'.jpg')}}" style="display: block;
+    margin-left: auto; margin-right: auto;" usemap="#image-map">
+    <map name="image-map">
+        <area href="{{url_for('get_page', item=title)}}" coords="110,167,110" shape="circle">
+    </map>
+</div>
+<p>{{ text }}</p>
+{% if title == 'author' %}
+<p>My <a href='https://github.com/AlexandrVovk/'>GitHub</a> account</p>
+{% else %}
+<p>This is count of words in text above: {{ text|wordcount }} </p>
+{% endif %}
+{% endblock %}
