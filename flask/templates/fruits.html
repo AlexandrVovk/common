@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+Fruits page
+{% endblock %}
+{% block body %}
+<p>Fruits list:</p>
+{% for elem in list %}
+{% if elem == 'strawberry' %}
+<ul style="color: red;">
+{% else %}
+<ul>
+{% endif %}
+    <li>
+        {{ elem }}
+    </li>
+</ul>
+{% endfor %}
+{% endblock %}
