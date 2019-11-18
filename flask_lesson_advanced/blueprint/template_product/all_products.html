@@ -5,12 +5,13 @@
     <title>All Product</title>
 </head>
 <body>
+<h1>Products</h1>
     <ol>
+        {% for i in value %}
         <li>
-            {% for i in product_list %}
-                {{ i['name'] }}
-            {% endfor %}
+            <a href="/product/{{ i['id'] }}">{{ i['name'] }}</a>
         </li>
+        {% endfor %}
     </ol>
 </body>
 </html>
