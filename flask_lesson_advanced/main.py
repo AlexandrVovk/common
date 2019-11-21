@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Response
 from blueprint.product_main import product
+from blueprint.supermarket_main import supermarket
 from infractructure import DB
 
 
@@ -13,6 +14,7 @@ def create_app():
     app.config.from_object('config')
     with app.app_context():
         app.register_blueprint(product)
+        app.register_blueprint(supermarket)
         return app
 
 app = create_app()
@@ -20,12 +22,12 @@ app = create_app()
 
 @app.route('/')
 def index():
-    return "index ok"
-
-
-@app.route('/home')
-def home():
     return render_template('home.html')
+
+
+# @app.route('/home')
+# def home():
+#     return render_template('home.html')
 
 
 @app.errorhandler(404)

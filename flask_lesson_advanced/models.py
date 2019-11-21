@@ -13,6 +13,14 @@ class Product_class:
         self.price = price
         self.id = str(uuid.uuid4())
 
+class Supermarket_class:
+    def __init__(self, name, location, img_name):
+        self.name = name
+        self.location = location
+        self.img_name = img_name
+        self.id = str(uuid.uuid4())
+
+
 
 class LoginForm(FlaskForm):
     openid = StringField('openid', validators=[DataRequired()])

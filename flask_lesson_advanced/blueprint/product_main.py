@@ -13,13 +13,9 @@ product = Blueprint('product', __name__, template_folder='template_product', sta
 def products_fun():
     print("products_fun")
     arg_price = request.args.get("price")
-    # print(type(arg_price))
     products_list = [{"name": rest.name, "id": rest.id, "price": rest.price,
               "img_name": rest.img_name, "description": rest.description} for rest in DB['products']]
     product_filter = [i for i in products_list if str(i["price"]) == str(arg_price)]
-    # if print(product_filter[0]):
-    #     print(product_filter[0])
-    #     print()
     if len(product_filter) > 0:
         return render_template('all_products.html', value=product_filter)
     return render_template('all_products.html', value=products_list)
