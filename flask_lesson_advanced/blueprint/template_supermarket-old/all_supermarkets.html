@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Product</title>
+</head>
+<body>
+    <ol>
+        <li>
+            {% for i in supermarket_list %}
+                {{ i['name'] }}
+            {% endfor %}
+        </li>
+    </ol>
+</body>
+</html>

@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All Supermarket</title>
+    <title>All Product</title>
 </head>
 <body>
-<h1>Supermarkets</h1>
+<h1>Products</h1>
     <ol>
         {% for i in value %}
         <li>
-            <a href="/supermarket/{{ i['id'] }}">{{ i['name'] }}</a>
+            <a href="/product/{{ i['id'] }}">{{ i['name'] }}</a>
         </li>
         {% endfor %}
     </ol>

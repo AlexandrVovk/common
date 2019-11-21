@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Product</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}All Products{% endblock %}
+{% block body %}
 <h1>Products</h1>
     <ol>
         {% for i in value %}
@@ -13,5 +9,4 @@
         </li>
         {% endfor %}
     </ol>
-</body>
-</html>
+{% endblock%}
