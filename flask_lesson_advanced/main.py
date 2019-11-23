@@ -2,7 +2,7 @@ from flask import Flask, render_template, Response
 from blueprint.product_main import product
 from blueprint.supermarket_main import supermarket
 from infractructure import DB
-
+from config import Config
 
 def setup_db():
     DB['products'] = []
@@ -12,7 +12,7 @@ def setup_db():
 def create_app():
     setup_db()
     app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object('config')
+    app.config.from_object(Config)
     with app.app_context():
         app.register_blueprint(product)
         app.register_blueprint(supermarket)
