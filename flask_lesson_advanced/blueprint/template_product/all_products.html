@@ -5,8 +5,12 @@
     <ol>
         {% for i in value %}
         <li>
-            <a href="/product/{{ i['id'] }}">{{ i['name'] }}</a>
+            {% if i['name'] in sess %}
+                <a href="/product/{{ i['id'] }}" onclick="return false;">{{ i['name'] }}</a>
+            {% else %}
+                <a href="/product/{{ i['id'] }}">{{ i['name'] }}</a>
+            {% endif %}
         </li>
         {% endfor %}
     </ol>
-{% endblock%}
+{% endblock %}

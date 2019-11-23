@@ -8,6 +8,7 @@ def setup_db():
     DB['products'] = []
     DB['supermarkets'] = []
 
+
 def create_app():
     setup_db()
     app = Flask(__name__, instance_relative_config=False)
@@ -17,17 +18,13 @@ def create_app():
         app.register_blueprint(supermarket)
         return app
 
+
 app = create_app()
 
 
 @app.route('/')
 def index():
     return render_template('home.html')
-
-
-# @app.route('/home')
-# def home():
-#     return render_template('home.html')
 
 
 @app.errorhandler(404)

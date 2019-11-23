@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
     <ul>
-        <li><a href="/product">Products</a></li>
+        <li>
+            {% if value == True %}
+                <a href="/product" onclick="return false;">Products</a>
+            {% else %}
+                <a href="/product" >Products</a>
+            {% endif %}
+        </li>
+
         <li><a href="/supermarket">Supermarkets</a></li>
     </ul>
-</p>
-</body>
-</html>
+{% endblock %}

@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Supermarket</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}All Supermarkets{% endblock %}
+{% block body %}
 <h1>Supermarkets</h1>
     <ol>
         {% for i in value %}
         <li>
-            <a href="/supermarket/{{ i['id'] }}">{{ i['name'] }}</a>
+            {% if i['name'] in sess %}
+                <a href="/supermarket/{{ i['id'] }}" onclick="return false;">{{ i['name'] }}</a>
+            {% else %}
+                <a href="/supermarket/{{ i['id'] }}">{{ i['name'] }}</a>
+            {% endif %}
         </li>
         {% endfor %}
     </ol>
-</body>
-</html>
+{% endblock %}

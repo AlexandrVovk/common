@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Supermarket{% endblock %}
+{% block body %}
 <h1>Supermarket</h1>
 
 <form action="/supermarket" method="POST" enctype="multipart/form-data">
   Name:<br>
-  <input name="name" value="Novus">
+  <input name="name">
   <br><br>
   Location:<br>
-  <input name="location" value="Kyiv">
+  <input name="location">
   <br><br>
   Img_name:<br>
   <input name="img_name" type="file">
   <br><br>
   <input type="submit" value="Add Supermarket">
 </form>
-
-
-</body>
-</html>
+{% endblock %}

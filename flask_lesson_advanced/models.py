@@ -1,5 +1,4 @@
 import uuid
-
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, StringField
 from wtforms.validators import DataRequired
@@ -13,6 +12,7 @@ class Product_class:
         self.price = price
         self.id = str(uuid.uuid4())
 
+
 class Supermarket_class:
     def __init__(self, name, location, img_name):
         self.name = name
@@ -21,7 +21,6 @@ class Supermarket_class:
         self.id = str(uuid.uuid4())
 
 
-
 class LoginForm(FlaskForm):
     openid = StringField('openid', validators=[DataRequired()])
-    remember_me = BooleanField('remember_me', default = False)
+    remember_me = BooleanField('remember_me', default=False)
