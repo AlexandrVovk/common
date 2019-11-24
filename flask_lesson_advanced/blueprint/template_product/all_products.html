@@ -6,9 +6,9 @@
         {% for i in value %}
         <li>
             {% if i['name'] in sess %}
-                <a href="/product/{{ i['id'] }}" onclick="return false;">{{ i['name'] }}</a>
+                <a href="{{url_for('product.products_fun')}}/{{ i['id'] }}" onclick="return false;">{{ i['name'] }}</a>
             {% else %}
-                <a href="/product/{{ i['id'] }}">{{ i['name'] }}</a>
+                <a href="{{url_for('product.products_fun')}}/{{ i['id'] }}">{{ i['name'] }}</a>
             {% endif %}
         </li>
         {% endfor %}
