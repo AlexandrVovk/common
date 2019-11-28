@@ -2,14 +2,7 @@
 {% block title %}Home{% endblock %}
 {% block body %}
     <ul>
-        <li>
-            {% if value == True %}
-                <a href="/product" onclick="return false;">Products</a>
-            {% else %}
-                <a href="/product" >Products</a>
-            {% endif %}
-        </li>
-
-        <li><a href="/supermarket">Supermarkets</a></li>
+        <li><a href="{{url_for('product.products_fun')}}" >Products</a></li>
+        <li><a href="{{url_for('supermarket.supermarkets_fun')}}">Supermarkets</a></li>
     </ul>
 {% endblock %}

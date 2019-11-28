@@ -18,14 +18,18 @@ def supermarkets_fun():
                          for rest in DB['supermarkets']]
     supermarket_filter = [i for i in supermarkets_list if str(i["location"]) == str(arg_location)]
     sess = session.keys()
+    message = False
+    if len(supermarkets_list) == 0:
+        message = "There are no supermarkets"
     if len(supermarket_filter) > 0:
-        return render_template('all_supermarkets.html', value=supermarket_filter, sess=sess)
-    return render_template('all_supermarkets.html', value=supermarkets_list, sess=sess)
+        return render_template('all_supermarkets.html', value=supermarket_filter,
+                               message=message, sess=sess)
+    return render_template('all_supermarkets.html', value=supermarkets_list,
+                           message=message, sess=sess)
 
 
 @supermarket.route('/supermarket/<id>', methods=['GET'])
 def supermarket_id_fun(id):
-    print("supermarket_id_fun")
     supermarkets_list = [{"id": rest.id,
                           "name": rest.name, "location": rest.location,
                           "img_name": rest.img_name}

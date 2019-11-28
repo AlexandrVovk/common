@@ -19,8 +19,3 @@ class Supermarket_class:
         self.location = location
         self.img_name = img_name
         self.id = str(uuid.uuid4())
-
-
-class LoginForm(FlaskForm):
-    openid = StringField('openid', validators=[DataRequired()])
-    remember_me = BooleanField('remember_me', default=False)

@@ -2,15 +2,20 @@
 {% block title %}All Products{% endblock %}
 {% block body %}
 <h1>Products</h1>
-    <ol>
-        {% for i in value %}
-        <li>
-            {% if i['name'] in sess %}
-                <a href="{{url_for('product.products_fun')}}/{{ i['id'] }}" onclick="return false;">{{ i['name'] }}</a>
-            {% else %}
-                <a href="{{url_for('product.products_fun')}}/{{ i['id'] }}">{{ i['name'] }}</a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ol>
+    {% if message != False %}
+        <p>{{ message }}</p>
+    {% else %}
+        <ol>
+            {% for i in value %}
+            <li>
+                {% if i['name'] in sess %}
+                    <a href="{{url_for('product.products_fun')}}/{{ i['id'] }}" onclick="return false;">{{ i['name'] }}</a>
+                {% else %}
+                    <a href="{{url_for('product.products_fun')}}/{{ i['id'] }}">{{ i['name'] }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
 {% endblock %}

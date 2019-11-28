@@ -17,9 +17,13 @@ def products_fun():
                      for rest in DB['products']]
     product_filter = [i for i in products_list if str(i["price"]) == str(arg_price)]
     sess = session.keys()
+    message = False
+    if len(products_list) == 0:
+        message = "There are no products"
     if len(product_filter) > 0:
-        return render_template('all_products.html', value=product_filter, sess=sess)
-    return render_template('all_products.html', value=products_list, sess=sess)
+        return render_template('all_products.html', value=product_filter,
+                               message=message, sess=sess)
+    return render_template('all_products.html', value=products_list, message=message, sess=sess)
 
 
 @product.route('/product/<id>', methods=['GET'])
