@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}All Supermarkets{% endblock %}
+{% block body %}
+<h1>{{ name }}</h1>
+<p>{{ location }}</p>
+    <img src="{{url_for('supermarket.static', filename=img_name)}}" style="display: block;
+    margin-left: auto; margin-right: auto;">
+{% endblock %}

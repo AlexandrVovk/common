@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Add Product{% endblock %}
+{% block body %}
+<h1>Product</h1>
+
+<form action="{{url_for('product.products_create_fun')}}" method="POST" enctype="multipart/form-data">
+  Name:<br>
+  <input name="name">
+  <br><br>
+  Description:<br>
+  <input name="description">
+  <br><br>
+  Price:<br>
+  <input name="price">
+  <br><br>
+  Img_name:<br>
+  <input name="img_name" type="file">
+  <br><br>
+  <input type="submit" value="Add Product">
+</form>
+{% endblock %}
