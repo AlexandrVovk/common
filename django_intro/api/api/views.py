@@ -16,19 +16,17 @@ SIMPLE_TEMPLATE = """
 </html>
 """
 
+
 def health_check(request):
     return HttpResponse("ok")
+
 
 def index_func(request):
     return HttpResponse(SIMPLE_TEMPLATE)
 
+
 def list_func(request):
     response = requests.get(f'{POCKEMON_URL}/type/3')
     response_list = [(i, p['pokemon']['name'], p['pokemon']['url'])
-                    for i, p in enumerate(response.json()['pokemon'], start=1)]
-    # response_template = loader.get_template('list.html')
-    # return HttpResponse(response_template.render(response_list, request), content_type='application/xhtml+xml')
+                     for i, p in enumerate(response.json()['pokemon'], start=1)]
     return render(request, 'list.html', {'value': response_list})
-
-    # return HttpResponse([f"{i, p['pokemon']['name'], p['pokemon']['url']}<br />"
-    #                      for i, p in enumerate(response.json()['pokemon'], start=1)])
