@@ -1,5 +1,6 @@
 import requests
 from django.http import HttpResponse
+from django.shortcuts import render
 
 POCKEMON_URL = 'https://pokeapi.co/api/v2/'
 
@@ -23,5 +24,11 @@ def index_func(request):
 
 def list_func(request):
     response = requests.get(f'{POCKEMON_URL}/type/3')
-    return HttpResponse([f"{i, p['pokemon']['name'], p['pokemon']['url']}<br />"
-                         for i, p in enumerate(response.json()['pokemon'], start=1)])
+    response_list = [(i, p['pokemon']['name'], p['pokemon']['url'])
+                    for i, p in enumerate(response.json()['pokemon'], start=1)]
+    # response_template = loader.get_template('list.html')
+    # return HttpResponse(response_template.render(response_list, request), content_type='application/xhtml+xml')
+    return render(request, 'list.html', {'value': response_list})
+
+    # return HttpResponse([f"{i, p['pokemon']['name'], p['pokemon']['url']}<br />"
+    #                      for i, p in enumerate(response.json()['pokemon'], start=1)])
