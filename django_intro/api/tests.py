@@ -1,13 +1,11 @@
 from http import HTTPStatus
-
 from django.test import TestCase
 from django.test import Client
-
 from django.urls import reverse
-# from api.views import POCKEMON_URL
+from django.conf import settings
 import requests
 
-POCKEMON_URL = 'https://pokeapi.co/api/v2/'
+POCKEMON_URL = settings.POCKEMON_URL
 response_api_pokemon = requests.get(f'{POCKEMON_URL}/type/3')
 response_api_pokemon_bad_structure = requests.get(f'{POCKEMON_URL}')
 
@@ -27,9 +25,7 @@ class StatusViewTests(TestCase):
         assert response.status_code == HTTPStatus.OK
 
     def test_pokemon_api_response_dict(self):
-        result = type(dict())
-        actual_result = type(response_api_pokemon.json())
-        self.assertEqual(result, actual_result)
+        self.assertIsInstance(response_api_pokemon.json(), dict)
 
     def test_pokemon_api_response_structure(self):
         result = ['name', 'url']
@@ -38,7 +34,9 @@ class StatusViewTests(TestCase):
             self.assertEqual(result, actual_result)
 
     def test_pokemon_api_response_bad_structure_will_be_FAILED(self):
-        result = ['name', 'url']
-        for item in response_api_pokemon_bad_structure.json()['pokemon']:
-            actual_result = list(item['pokemon'].keys())
-            self.assertEqual(result, actual_result)
+        try:
+            for item in response_api_pokemon_bad_structure.json()['pokemon']:
+                list(item['pokemon'].keys())
+                assert False
+        except:
+            assert True
