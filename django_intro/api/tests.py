@@ -9,6 +9,7 @@ POCKEMON_URL = settings.POCKEMON_URL
 response_api_pokemon = requests.get(f'{POCKEMON_URL}/type/3')
 response_api_pokemon_bad_structure = requests.get(f'{POCKEMON_URL}')
 
+
 class StatusViewTests(TestCase):
     client = Client()
 
@@ -33,10 +34,9 @@ class StatusViewTests(TestCase):
             actual_result = list(item['pokemon'].keys())
             self.assertEqual(result, actual_result)
 
-    def test_pokemon_api_response_bad_structure_will_be_FAILED(self):
+    def test_pokemon_api_response_bad_structure(self):
         try:
-            for item in response_api_pokemon_bad_structure.json()['pokemon']:
-                list(item['pokemon'].keys())
-                assert False
+            response_api_pokemon_bad_structure.json()['pokemon']['pokemon']
+            assert False
         except:
             assert True
